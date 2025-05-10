@@ -1,124 +1,141 @@
 import json
 import os
 import dns.resolver
+import ping3  # pip install ping3
 from datetime import datetime, timedelta, timezone
-# 引入多线程查询
 from concurrent.futures import ThreadPoolExecutor
 
+# 强制使用的公共DNS服务器列表（按优先级排序）
+RELIABLE_DNS_SERVERS = [
+    '8.8.8.8',      # Google DNS
+    '1.1.1.1'       # Cloudflare DNS
+]
+
+#     '223.5.5.5',    # 阿里DNS
+#     '119.29.29.29'  # 腾讯DNS
 
 # 更新时间修订北京时间
 def get_bj_time_str():
     utc_dt = datetime.now(timezone.utc)
     bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
-    str_date = bj_dt.strftime("%Y-%m-%d %H:%M:%S")
-    return str_date
+    return bj_dt.strftime("%Y-%m-%d %H:%M:%S")
 
-
+# 写入文件
 def write_to_file(contents, filename):
     with open(filename, 'w') as file:
         file.write(contents)
-    print(f"{filename}文件写入成功")
+    print(f"[OK] {filename} 写入成功")
 
-
-def dns_lookup(domain):
+# 检查IP是否可Ping通
+def is_ip_reachable(ip, timeout=2):
     try:
-        answers = dns.resolver.resolve(domain, "A")
-        # 返回所有查询结果的地址列表
-        return [str(answer) for answer in answers]
-        # # 返回第一个查询结果的地址
-        # return str(answers[0])
-    except Exception as e:
-        print(f"{domain}解析DNS出错：")
-        print(e)
-        # 如果查询失败，返回空列表
-        return []
+        return ping3.ping(ip, timeout=timeout) is not None
+    except:
+        return False
 
+# DNS解析（强制使用可靠DNS + Ping检测）
+def dns_lookup(domain):
+    resolver = dns.resolver.Resolver()
+    
+    # 尝试所有DNS服务器直到成功
+    for dns_server in RELIABLE_DNS_SERVERS:
+        resolver.nameservers = [dns_server]
+        try:
+            answers = resolver.resolve(domain, "A")
+            ips = [str(answer) for answer in answers]
+            
+            # 返回第一个能Ping通的IP（确保可用性）
+            for ip in ips:
+                if is_ip_reachable(ip):
+                    return [ip]
+            
+            # 如果没有能Ping通的IP，返回第一个解析结果（标记为不可用）
+            return ips[:1] if ips else []
+            
+        except Exception as e:
+            print(f"[DNS Error] {domain} 通过 {dns_server} 解析失败: {str(e)}")
+            continue
+    
+    print(f"[Critical] {domain} 在所有DNS服务器上均解析失败")
+    return []
 
+# 加载域名数据
 def load_domain_data(filename):
     try:
         with open(filename, 'r') as file:
             return json.load(file)
     except FileNotFoundError:
-        print("文件 domain.json 不存在")
+        print("[Error] domain.json 文件不存在")
         return {}
     except json.JSONDecodeError:
-        print("文件 domain.json 格式错误")
+        print("[Error] domain.json 格式错误")
         return {}
-
 
 # 主程序
 def main(filename):
-    # 从domain.json文件中读取域名数据
     domain_data = load_domain_data(filename)
+    if not domain_data:
+        print("[Error] 未加载到有效域名数据")
+        return
 
-    # 存储解析后的域名和IP
     resolved_domains = {}
-
-    # 使用线程池来并行执行DNS解析
-    with ThreadPoolExecutor(max_workers=10) as executor:  # 你可以根据需要调整线程池大小
-        for key, domains in domain_data.items():
-            """
-            # 遍历domain_data字典中所有域名
-            # 对每个域名，异步执行dns_lookup函数，并将其添加到字典中，
-            # 字典的键是域名，值是对应的异步任务
-            """
-            future_to_domain = {domain: executor.submit(dns_lookup, domain) for domain in domains}
-            """
-            /**
-             * 根据提供的future对象映射，生成一个包含解析后的IP地址列表或错误标记的字典。
-             * 
-             * 该函数遍历`future_to_domain`字典中的每一个项，对于每一个future对象，
-             * 如果该future对象没有异常（即`dns_lookup`返回非空列表），则将其解析的结果（IP地址列表）与对应的domain组成键值对加入到新的字典中。
-             * 如果future对象存在异常（`dns_lookup`返回空列表）或查询失败，则将其value设置为"#"来标记错误。
-             * 
-             * @param future_to_domain 一个映射，其中键是域名，值是对应域名的Future对象，这些Future对象来自异步执行的`dns_lookup`函数。
-             * @return 一个字典，键为域名，值为解析后的IP地址列表（如果查询成功）或错误标记"#"（如果查询失败）。
-             */
-            """
-            resolved_ips = {domain: future.result() if future.result() else "#"
-                            for domain, future in future_to_domain.items()}
-            resolved_domains[key] = resolved_ips
-
     update_time = get_bj_time_str()
+
+    print(f"[Start] 开始解析 {len(domain_data)} 个分类的域名...")
+    
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        for category, domains in domain_data.items():
+            print(f"[Processing] 正在处理分类: {category} ({len(domains)}个域名)")
+            
+            # 并发执行DNS解析
+            future_to_domain = {domain: executor.submit(dns_lookup, domain) for domain in domains}
+            resolved_ips = {
+                domain: future.result() if future.result() else ["#"]
+                for domain, future in future_to_domain.items()
+            }
+            resolved_domains[category] = resolved_ips
+
+    # 生成文件内容
     key_content = {}
-    hosts_content = ""
+    hosts_content = "# Auto-generated hosts file\n# Updated: " + update_time + "\n\n"
 
-    for key, domains_ips in resolved_domains.items():
-        hosts_content += f"# {key} Hosts Start\n"
-        content = f"# {key} Hosts Start\n"
-        # 处理每个域名进行dnslookup查询时可能返回的多个 IP 地址
+    for category, domains_ips in resolved_domains.items():
+        category_header = f"# {category} Hosts Start"
+        category_footer = f"# {category} Hosts End"
+        
+        # 分类独立文件内容
+        content = [category_header]
+        valid_count = 0
+        
         for domain, ips in domains_ips.items():
-            for ip in ips:
-                if ip:  # 确保IP地址不为空
-                    content += f"{ip}\t\t{domain}\n"
-                    # 同时构建hosts.txt的内容
-                    hosts_content += f"{ip}\t\t{domain}\n"
-                    break # 对每个域名查询结果，只取一个IP地址
-        content += f"# Update Time: {str(update_time)} (UTC+8) \n"
-        content += f"# Update URL: https://raw.githubusercontent.com/oopsunix/hosts/main/hosts_{key.lower()}\n"
-        content += f"# {key} Hosts End"
+            if ips and ips[0] != "#":
+                content.append(f"{ips[0]}\t\t{domain}")
+                valid_count += 1
+        
+        content.append(f"# 有效记录: {valid_count}/{len(domains_ips)}")
+        content.append(f"# Update: {update_time} (UTC+8)")
+        content.append(f"# URL: https://example.com/hosts_{category.lower()}")
+        content.append(category_footer)
+        
+        key_content[category] = "\n".join(content)
+        
+        # 合并到总hosts文件
+        hosts_content += "\n".join(content) + "\n\n"
 
-        # 将准备好的内容保存到key_file_contents字典中
-        key_content[key] = content
+    # 写入文件
+    for category, content in key_content.items():
+        write_to_file(content, f'hosts_{category.lower()}')
 
-        # 在hosts.txt内容中添加分隔标记
-        hosts_content += f"# {key} Hosts End\n\n"
-        # hosts_content += content
+    hosts_content += f"# Total: {len(resolved_domains)} categories\n"
+    hosts_content += f"# Last Update: {update_time}\n"
+    write_to_file(hosts_content, 'hosts')
 
-    # 写入每个键对应的文件
-    for key, contents in key_content.items():
-        write_to_file(contents, f'hosts_{key.lower()}')
-
-    hosts_content += f"# Update Time: {str(update_time)} (UTC+8) \n"
-    hosts_content += f"# Update URL: https://raw.githubusercontent.com/oopsunix/hosts/main/hosts\n"
-    write_to_file(hosts_content, 'hosts')  # 写入hosts.txt
-
-    print("Update Hosts Success")
-
+    print(f"[Success] 所有域名处理完成！更新时间: {update_time}")
 
 if __name__ == '__main__':
-    # 获取当前路径目录
-    execPath = os.getcwd()
-    domainFile = execPath + "/domain.json"
-
-    main(domainFile)
+    domain_file = os.path.join(os.getcwd(), "domain.json")
+    if not os.path.exists(domain_file):
+        print(f"[Error] 请确保 {domain_file} 存在")
+        exit(1)
+        
+    main(domain_file)
