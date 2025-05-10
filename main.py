@@ -22,7 +22,7 @@ PING_TIMEOUT = 2
 MAX_WORKERS = 10
 IP_PADDING = 24  # IP地址对齐宽度
 
-# 自定义Update URL模板（{}会自动替换为分类名）
+# 自定义Update URL模板
 UPDATE_URL_TEMPLATE = "https://raw.githubusercontent.com/ParkCR/hosts/main/hosts_{}"
 
 # ====================== 工具函数 ======================
@@ -133,40 +133,54 @@ def generate_hosts_content(domain_data):
 
 """
     
+    # 简洁版hosts内容（无统计信息）
+    clean_hosts_content = hosts_content
+    
     for category, domains_ips in resolved_domains.items():
         category_lower = category.lower()
         category_header = f"# {category} Hosts Start"
         category_footer = f"# {category} Hosts End"
         
-        content_lines = [category_header]
+        # 完整版内容（带统计信息）
+        full_content_lines = [category_header]
         valid_count = 0
+        
+        # 简洁版内容
+        clean_content_lines = [category_header]
         
         for domain, ips in domains_ips.items():
             if ips and ips[0] != "#":
-                content_lines.append(format_hosts_entry(ips[0], domain))
+                entry = format_hosts_entry(ips[0], domain)
+                full_content_lines.append(entry)
+                clean_content_lines.append(entry)
                 valid_count += 1
             else:
-                content_lines.append(f"# {domain.ljust(IP_PADDING-2)}解析失败")
+                entry = f"# {domain.ljust(IP_PADDING-2)}解析失败"
+                full_content_lines.append(entry)
+                clean_content_lines.append(entry)
         
-        # 添加自定义Update URL
+        # 完整版添加统计信息
         update_url = UPDATE_URL_TEMPLATE.format(category_lower)
-        
-        content_lines.extend([
+        full_content_lines.extend([
             f"# 有效记录: {valid_count}/{len(domains_ips)}",
             f"# Update Time: {update_time}",
             f"# Update URL: {update_url}",
             category_footer
         ])
         
-        key_content[category] = "\n".join(content_lines)
-        hosts_content += "\n".join(content_lines) + "\n\n"
+        # 简洁版只保留必要信息
+        clean_content_lines.append(category_footer)
+        
+        key_content[category] = "\n".join(full_content_lines)
+        hosts_content += "\n".join(full_content_lines) + "\n\n"
+        clean_hosts_content += "\n".join(clean_content_lines) + "\n\n"
     
-    # 添加总文件的Update URL
-    hosts_content += f"# 总分类数: {len(resolved_domains)}\n"
-    hosts_content += f"# 最后更新: {update_time}\n"
-    hosts_content += f"# Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts\n"
+    # 添加总文件的统计信息
+    clean_hosts_content += f"# 总分类数: {len(resolved_domains)}\n"
+    clean_hosts_content += f"# 最后更新: {update_time}\n"
+    clean_hosts_content += f"# Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts\n"
     
-    return key_content, hosts_content
+    return key_content, clean_hosts_content
 
 def main():
     domain_file = os.path.join(os.getcwd(), "domain.json")
@@ -181,9 +195,11 @@ def main():
     
     key_content, hosts_content = generate_hosts_content(domain_data)
     
+    # 写入各分类文件（完整版）
     for category, content in key_content.items():
         write_to_file(content, f'hosts_{category.lower()}')
     
+    # 写入总hosts文件（简洁版）
     write_to_file(hosts_content, 'hosts')
     print("[Success] 所有处理完成！")
 
