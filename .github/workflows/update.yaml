@@ -2,10 +2,10 @@ name: Update Hosts
 
 on:
   schedule:
-    # 北京时间 8:00 (UTC 0:00) 和 20:00 (UTC 12:00)
-    - cron: "0 0 * * *"
-    - cron: "0 12 * * *"
-  workflow_dispatch:  # 添加这一行以支持手动触发
+    # 北京时间每小时运行一次（UTC+8）
+    - cron: "0 * * * *"
+      timezone: "Asia/Shanghai"
+  workflow_dispatch:  # 支持手动触发
 
 jobs:
   build:
