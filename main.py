@@ -13,6 +13,8 @@ from concurrent.futures import ThreadPoolExecutor
 RELIABLE_DNS_SERVERS = [
     '8.8.8.8',      # Google DNS
     '1.1.1.1',      # Cloudflare DNS
+    "101.101.101.101",  # Quad101
+    "101.102.103.104",  # Quad101
 ]
 
 #     '223.5.5.5',    # 阿里DNS
