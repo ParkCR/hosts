@@ -17,9 +17,6 @@ RELIABLE_DNS_SERVERS = [
     "101.102.103.104",  # Quad101
 ]
 
-#     '223.5.5.5',    # 阿里DNS
-#     '119.29.29.29'  # 腾讯DNS
-
 PING_TIMEOUT = 2
 MAX_WORKERS = 10
 IP_PADDING = 24  # IP地址对齐宽度
@@ -138,6 +135,13 @@ def generate_hosts_content(domain_data):
     # 简洁版hosts内容（无统计信息）
     clean_hosts_content = hosts_content
     
+    # TXT版本内容（保留分类注释）
+    txt_content = f"""# Hosts file in TXT format
+# Update: {update_time} (UTC+8)
+# Includes category markers
+
+"""
+    
     for category, domains_ips in resolved_domains.items():
         category_lower = category.lower()
         category_header = f"# {category} Hosts Start"
@@ -150,11 +154,15 @@ def generate_hosts_content(domain_data):
         # 简洁版内容
         clean_content_lines = [category_header]
         
+        # TXT版内容（保留分类注释）
+        txt_content_lines = [f"# {category} Hosts"]
+        
         for domain, ips in domains_ips.items():
             if ips and ips[0] != "#":
                 entry = format_hosts_entry(ips[0], domain)
                 full_content_lines.append(entry)
                 clean_content_lines.append(entry)
+                txt_content_lines.append(entry)
                 valid_count += 1
             else:
                 entry = f"# {domain.ljust(IP_PADDING-2)}解析失败"
@@ -173,6 +181,10 @@ def generate_hosts_content(domain_data):
         # 简洁版只保留必要信息
         clean_content_lines.append(category_footer)
         
+        # TXT版添加分类内容
+        if len(txt_content_lines) > 1:  # 如果有有效条目才添加
+            txt_content += "\n".join(txt_content_lines) + "\n\n"
+        
         key_content[category] = "\n".join(full_content_lines)
         hosts_content += "\n".join(full_content_lines) + "\n\n"
         clean_hosts_content += "\n".join(clean_content_lines) + "\n\n"
@@ -182,7 +194,11 @@ def generate_hosts_content(domain_data):
     clean_hosts_content += f"# 最后更新: {update_time}\n"
     clean_hosts_content += f"# Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts\n"
     
-    return key_content, clean_hosts_content
+    # 添加TXT文件的统计信息
+    txt_content += f"# Total categories: {len(resolved_domains)}\n"
+    txt_content += f"# Last update: {update_time}\n"
+    
+    return key_content, clean_hosts_content, txt_content.strip()
 
 def main():
     domain_file = os.path.join(os.getcwd(), "domain.json")
@@ -195,7 +211,7 @@ def main():
         print("[Error] 没有有效的域名数据")
         return
     
-    key_content, hosts_content = generate_hosts_content(domain_data)
+    key_content, hosts_content, txt_content = generate_hosts_content(domain_data)
     
     # 写入各分类文件（完整版）
     for category, content in key_content.items():
@@ -203,6 +219,10 @@ def main():
     
     # 写入总hosts文件（简洁版）
     write_to_file(hosts_content, 'hosts')
+    
+    # 写入TXT格式的hosts文件（保留分类注释）
+    write_to_file(txt_content, 'hosts.txt')
+    
     print("[Success] 所有处理完成！")
 
 if __name__ == '__main__':
