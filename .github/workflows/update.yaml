@@ -44,7 +44,7 @@ jobs:
       - name: Purge jsDelivr cache
         run: |
           # 替换 YOUR_FILE_URL 为你的文件在 jsDelivr 上的完整 URL
-          FILE_URL="https://cdn.jsdelivr.net/gh/ParkCR/hosts@main/hosts.txt"
+          FILE_URL="/gh/ParkCR/hosts@main/hosts.txt"
           curl -X POST "https://purge.jsdelivr.net/" \
             -H "Content-Type: application/json" \
             -d "{\"path\":\"$FILE_URL\"}"
