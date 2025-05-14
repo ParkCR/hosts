@@ -1,9 +1,8 @@
-# ============================================
-# Auto-generated hosts file
+# Hosts file in TXT format
 # Update: 2025-05-14 12:18:51 (UTC+8)
-# ============================================
+# Includes category markers
 
-# GitHub Hosts Start
+# GitHub Hosts
 185.199.110.153         github.io
 52.224.38.193           github.dev
 192.0.66.2              github.blog
@@ -12,7 +11,6 @@
 140.82.112.4            github.com
 140.82.114.25           alive.github.com
 140.82.113.6            api.github.com
-# assets-cdn.github.com 解析失败
 140.82.112.21           central.github.com
 140.82.113.10           codeload.github.com
 140.82.114.21           collector.github.com
@@ -44,9 +42,8 @@
 185.199.111.133         github.map.fastly.net
 151.101.65.194          github.global.ssl.fastly.net
 13.107.246.40           vscode.dev
-# GitHub Hosts End
 
-# Steam Hosts Start
+# Steam Hosts
 104.94.121.98           steam-chat.com
 23.47.27.74             steamcommunity.com
 104.94.121.98           www.steamcommunity.com
@@ -62,25 +59,20 @@
 23.218.216.30           community.akamai.steamstatic.com
 23.218.216.43           store.akamai.steamstatic.com
 23.199.55.31            steamcdn-a.akamaihd.net
-# Steam Hosts End
 
-# TMDB Hosts Start
+# TMDB Hosts
 3.171.38.81             www.themoviedb.org
 52.85.151.28            api.themoviedb.org
 169.150.236.99          image.tmdb.org
 3.167.112.56            api.tmdb.org
-# TMDB Hosts End
 
-# Google_Translate Hosts Start
+# Google_Translate Hosts
 142.251.16.95           translate.googleapis.com
 64.233.180.101          translate.google.com
-# Google_Translate Hosts End
 
-# wallhaven Hosts Start
+# wallhaven Hosts
 104.26.11.35            wallhaven.cc
 104.26.10.35            th.wallhaven.cc
-# wallhaven Hosts End
 
-# 总分类数: 5
-# 最后更新: 2025-05-14 12:18:51
-# Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts
+# Total categories: 5
+# Last update: 2025-05-14 12:18:51
