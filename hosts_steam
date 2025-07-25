@@ -1,20 +1,20 @@
 # Steam Hosts Start
-23.50.36.90             steam-chat.com
-23.65.19.99             steamcommunity.com
-23.50.36.90             www.steamcommunity.com
-23.65.19.99             api.steampowered.com
-23.65.19.99             help.steampowered.com
-23.0.217.190            store.steampowered.com
-104.123.153.24          media.steampowered.com
-23.65.19.99             login.steampowered.com
-23.0.217.190            checkout.steampowered.com
-151.101.131.52          community.steamstatic.com
-104.123.153.11          avatars.akamai.steamstatic.com
-104.123.153.24          cdn.akamai.steamstatic.com
-104.123.153.32          community.akamai.steamstatic.com
-104.123.153.24          store.akamai.steamstatic.com
-104.123.153.18          steamcdn-a.akamaihd.net
+23.2.133.147            steam-chat.com
+23.11.10.111            steamcommunity.com
+23.2.133.147            www.steamcommunity.com
+23.11.10.111            api.steampowered.com
+23.11.10.111            help.steampowered.com
+23.205.97.108           store.steampowered.com
+23.209.94.172           media.steampowered.com
+23.11.10.111            login.steampowered.com
+23.205.97.108           checkout.steampowered.com
+151.101.3.52            community.steamstatic.com
+23.209.94.170           avatars.akamai.steamstatic.com
+23.209.94.182           cdn.akamai.steamstatic.com
+23.209.94.165           community.akamai.steamstatic.com
+23.209.94.180           store.akamai.steamstatic.com
+104.123.153.24          steamcdn-a.akamaihd.net
 # 有效记录: 15/15
-# Update Time: 2025-07-25 21:31:44
+# Update Time: 2025-07-25 22:13:28
 # Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts_steam
 # Steam Hosts End
