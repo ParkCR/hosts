@@ -1,86 +1,86 @@
 # ============================================
 # Auto-generated hosts file
-# Update: 2025-12-12 21:29:44 (UTC+8)
+# Update: 2025-12-12 22:13:59 (UTC+8)
 # ============================================
 
 # GitHub Hosts Start
 185.199.108.153         github.io
 52.224.38.193           github.dev
 192.0.66.2              github.blog
-140.82.114.17           github.community
+140.82.112.18           github.community
 185.199.109.153         githubstatus.com
-140.82.112.4            github.com
-140.82.113.25           alive.github.com
-140.82.113.6            api.github.com
+140.82.113.4            github.com
+140.82.114.26           alive.github.com
+140.82.112.5            api.github.com
 # assets-cdn.github.com 解析失败
-140.82.113.21           central.github.com
-140.82.113.9            codeload.github.com
-140.82.113.21           collector.github.com
-140.82.112.3            gist.github.com
-140.82.114.25           live.github.com
-185.199.109.154         github.githubassets.com
-185.199.110.133         avatars.githubusercontent.com
-185.199.111.133         avatars0.githubusercontent.com
-185.199.109.133         avatars1.githubusercontent.com
-185.199.110.133         avatars2.githubusercontent.com
+140.82.112.22           central.github.com
+140.82.112.10           codeload.github.com
+140.82.114.21           collector.github.com
+140.82.113.4            gist.github.com
+140.82.112.26           live.github.com
+185.199.111.154         github.githubassets.com
+185.199.109.133         avatars.githubusercontent.com
+185.199.109.133         avatars0.githubusercontent.com
+185.199.108.133         avatars1.githubusercontent.com
+185.199.111.133         avatars2.githubusercontent.com
 185.199.110.133         avatars3.githubusercontent.com
-185.199.108.133         avatars4.githubusercontent.com
-185.199.111.133         avatars5.githubusercontent.com
+185.199.110.133         avatars4.githubusercontent.com
+185.199.108.133         avatars5.githubusercontent.com
 185.199.110.133         camo.githubusercontent.com
 185.199.111.133         cloud.githubusercontent.com
-4.249.131.160           copilot-proxy.githubusercontent.com
-185.199.108.133         desktop.githubusercontent.com
-185.199.109.133         favicons.githubusercontent.com
-185.199.111.133         raw.githubusercontent.com
-185.199.111.133         media.githubusercontent.com
+20.85.130.105           copilot-proxy.githubusercontent.com
+185.199.111.133         desktop.githubusercontent.com
+185.199.110.133         favicons.githubusercontent.com
+185.199.110.133         raw.githubusercontent.com
+185.199.110.133         media.githubusercontent.com
 185.199.108.133         objects.githubusercontent.com
-185.199.108.133         user-images.githubusercontent.com
+185.199.109.133         user-images.githubusercontent.com
 13.107.42.16            pipelines.actions.githubusercontent.com
-3.5.28.35               github-cloud.s3.amazonaws.com
-3.5.28.222              github-com.s3.amazonaws.com
-3.5.28.222              github-production-release-asset-2e65be.s3.amazonaws.com
-3.5.1.13                github-production-repository-file-5c1aeb.s3.amazonaws.com
-54.231.203.41           github-production-user-asset-6210df.s3.amazonaws.com
+52.217.132.1            github-cloud.s3.amazonaws.com
+3.5.25.36               github-com.s3.amazonaws.com
+52.217.228.49           github-production-release-asset-2e65be.s3.amazonaws.com
+3.5.30.59               github-production-repository-file-5c1aeb.s3.amazonaws.com
+3.5.20.209              github-production-user-asset-6210df.s3.amazonaws.com
 185.199.110.133         github.map.fastly.net
-151.101.129.194         github.global.ssl.fastly.net
-13.107.213.51           vscode.dev
+151.101.193.194         github.global.ssl.fastly.net
+13.107.246.40           vscode.dev
 # GitHub Hosts End
 
 # Steam Hosts Start
-23.2.133.147            steam-chat.com
-23.11.10.111            steamcommunity.com
-23.2.133.147            www.steamcommunity.com
-23.11.10.111            api.steampowered.com
-23.11.10.111            help.steampowered.com
-23.220.109.173          store.steampowered.com
-23.193.200.17           media.steampowered.com
-23.11.10.111            login.steampowered.com
-23.220.109.173          checkout.steampowered.com
+104.94.122.13           steam-chat.com
+23.1.47.193             steamcommunity.com
+104.94.122.13           www.steamcommunity.com
+23.1.47.193             api.steampowered.com
+23.1.47.193             help.steampowered.com
+23.3.133.209            store.steampowered.com
+23.215.0.229            media.steampowered.com
+23.1.47.193             login.steampowered.com
+23.3.133.209            checkout.steampowered.com
 199.232.215.52          community.steamstatic.com
-23.193.200.8            avatars.akamai.steamstatic.com
-23.193.200.3            cdn.akamai.steamstatic.com
-23.193.200.9            community.akamai.steamstatic.com
-23.193.200.24           store.akamai.steamstatic.com
-23.48.37.165            steamcdn-a.akamaihd.net
+23.215.0.234            avatars.akamai.steamstatic.com
+23.215.0.239            cdn.akamai.steamstatic.com
+23.215.0.233            community.akamai.steamstatic.com
+23.215.0.241            store.akamai.steamstatic.com
+23.55.176.83            steamcdn-a.akamaihd.net
 # Steam Hosts End
 
 # TMDB Hosts Start
-52.222.205.11           www.themoviedb.org
-18.161.156.25           api.themoviedb.org
-185.93.1.249            image.tmdb.org
-52.222.205.18           api.tmdb.org
+3.171.38.90             www.themoviedb.org
+52.85.132.87            api.themoviedb.org
+169.150.236.107         image.tmdb.org
+3.170.19.19             api.tmdb.org
 # TMDB Hosts End
 
 # Google_Translate Hosts Start
-142.250.152.95          translate.googleapis.com
-142.250.152.102         translate.google.com
+172.253.122.95          translate.googleapis.com
+172.253.62.101          translate.google.com
 # Google_Translate Hosts End
 
 # wallhaven Hosts Start
-104.26.10.35            wallhaven.cc
+104.26.11.35            wallhaven.cc
 172.67.74.111           th.wallhaven.cc
 # wallhaven Hosts End
 
 # 总分类数: 5
-# 最后更新: 2025-12-12 21:29:44
+# 最后更新: 2025-12-12 22:13:59
 # Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts
