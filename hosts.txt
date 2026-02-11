@@ -1,47 +1,47 @@
 # Hosts file in TXT format
-# Update: 2026-02-11 07:32:25 (UTC+8)
+# Update: 2026-02-11 09:46:06 (UTC+8)
 # Includes category markers
 
 # GitHub Hosts
-185.199.109.153         github.io
+185.199.110.153         github.io
 20.99.227.183           github.dev
 192.0.66.2              github.blog
-140.82.113.17           github.community
-185.199.109.153         githubstatus.com
-140.82.114.3            github.com
+140.82.113.18           github.community
+185.199.111.153         githubstatus.com
+140.82.113.4            github.com
 140.82.114.26           alive.github.com
 140.82.112.6            api.github.com
-140.82.114.22           central.github.com
+140.82.113.21           central.github.com
 140.82.113.9            codeload.github.com
-140.82.114.21           collector.github.com
-140.82.112.3            gist.github.com
-140.82.114.26           live.github.com
-185.199.110.154         github.githubassets.com
-185.199.108.133         avatars.githubusercontent.com
-185.199.108.133         avatars0.githubusercontent.com
-185.199.110.133         avatars1.githubusercontent.com
-185.199.111.133         avatars2.githubusercontent.com
-185.199.110.133         avatars3.githubusercontent.com
-185.199.109.133         avatars4.githubusercontent.com
-185.199.110.133         avatars5.githubusercontent.com
-185.199.111.133         camo.githubusercontent.com
-185.199.109.133         cloud.githubusercontent.com
+140.82.112.22           collector.github.com
+140.82.113.3            gist.github.com
+140.82.113.26           live.github.com
+185.199.108.154         github.githubassets.com
+185.199.109.133         avatars.githubusercontent.com
+185.199.111.133         avatars0.githubusercontent.com
+185.199.111.133         avatars1.githubusercontent.com
+185.199.109.133         avatars2.githubusercontent.com
+185.199.111.133         avatars3.githubusercontent.com
+185.199.108.133         avatars4.githubusercontent.com
+185.199.109.133         avatars5.githubusercontent.com
+185.199.110.133         camo.githubusercontent.com
+185.199.111.133         cloud.githubusercontent.com
 138.91.182.224          copilot-proxy.githubusercontent.com
 185.199.108.133         desktop.githubusercontent.com
-185.199.111.133         favicons.githubusercontent.com
-185.199.111.133         raw.githubusercontent.com
-185.199.109.133         media.githubusercontent.com
-185.199.111.133         objects.githubusercontent.com
-185.199.108.133         user-images.githubusercontent.com
+185.199.108.133         favicons.githubusercontent.com
+185.199.110.133         raw.githubusercontent.com
+185.199.110.133         media.githubusercontent.com
+185.199.110.133         objects.githubusercontent.com
+185.199.109.133         user-images.githubusercontent.com
 13.107.42.16            pipelines.actions.githubusercontent.com
-52.217.195.81           github-cloud.s3.amazonaws.com
-52.216.40.185           github-com.s3.amazonaws.com
-16.182.33.217           github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.80.84            github-production-repository-file-5c1aeb.s3.amazonaws.com
-3.5.8.131               github-production-user-asset-6210df.s3.amazonaws.com
+3.5.30.41               github-cloud.s3.amazonaws.com
+16.182.35.129           github-com.s3.amazonaws.com
+16.15.177.59            github-production-release-asset-2e65be.s3.amazonaws.com
+16.182.35.25            github-production-repository-file-5c1aeb.s3.amazonaws.com
+54.231.129.161          github-production-user-asset-6210df.s3.amazonaws.com
 185.199.111.133         github.map.fastly.net
 151.101.193.194         github.global.ssl.fastly.net
-13.107.213.51           vscode.dev
+13.107.246.51           vscode.dev
 
 # Steam Hosts
 104.94.66.6             steam-chat.com
@@ -50,29 +50,29 @@
 184.86.165.128          api.steampowered.com
 184.86.165.128          help.steampowered.com
 173.223.0.67            store.steampowered.com
-23.47.49.71             media.steampowered.com
+23.47.48.142            media.steampowered.com
 184.86.165.128          login.steampowered.com
 173.223.0.67            checkout.steampowered.com
 199.232.211.52          community.steamstatic.com
-23.47.49.77             avatars.akamai.steamstatic.com
-23.47.49.115            cdn.akamai.steamstatic.com
-23.47.49.69             community.akamai.steamstatic.com
-23.47.49.118            store.akamai.steamstatic.com
+23.47.48.173            avatars.akamai.steamstatic.com
+23.47.48.142            cdn.akamai.steamstatic.com
+23.47.48.152            community.akamai.steamstatic.com
+23.47.48.145            store.akamai.steamstatic.com
 23.47.48.98             steamcdn-a.akamaihd.net
 
 # TMDB Hosts
-52.222.205.52           www.themoviedb.org
+52.222.205.102          www.themoviedb.org
 18.161.156.100          api.themoviedb.org
-169.150.236.100         image.tmdb.org
+185.93.1.247            image.tmdb.org
 18.161.156.62           api.tmdb.org
 
 # Google_Translate Hosts
 142.251.121.95          translate.googleapis.com
-192.178.142.113         translate.google.com
+192.178.142.100         translate.google.com
 
 # wallhaven Hosts
-104.26.11.35            wallhaven.cc
+172.67.74.111           wallhaven.cc
 172.67.74.111           th.wallhaven.cc
 
 # Total categories: 5
-# Last update: 2026-02-11 07:32:25
+# Last update: 2026-02-11 09:46:06
