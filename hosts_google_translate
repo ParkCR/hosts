@@ -1,7 +1,7 @@
 # Google_Translate Hosts Start
-142.250.189.106         translate.googleapis.com
-142.250.189.110         translate.google.com
+192.178.155.95          translate.googleapis.com
+64.233.180.100          translate.google.com
 # 有效记录: 2/2
-# Update Time: 2026-02-21 19:16:28
+# Update Time: 2026-02-21 20:31:05
 # Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts_google_translate
 # Google_Translate Hosts End
