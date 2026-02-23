@@ -1,9 +1,9 @@
 # TMDB Hosts Start
 65.8.54.49              www.themoviedb.org
-18.244.214.44           api.themoviedb.org
-143.244.50.86           image.tmdb.org
-18.155.202.76           api.tmdb.org
+18.244.214.79           api.themoviedb.org
+143.244.49.177          image.tmdb.org
+18.238.192.8            api.tmdb.org
 # 有效记录: 4/4
-# Update Time: 2026-02-23 15:48:55
+# Update Time: 2026-02-23 16:39:39
 # Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts_tmdb
 # TMDB Hosts End
