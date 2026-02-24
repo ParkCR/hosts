@@ -1,86 +1,86 @@
 # ============================================
 # Auto-generated hosts file
-# Update: 2026-02-25 00:57:32 (UTC+8)
+# Update: 2026-02-25 01:54:37 (UTC+8)
 # ============================================
 
 # GitHub Hosts Start
 185.199.108.153         github.io
-52.224.38.193           github.dev
+20.99.227.183           github.dev
 192.0.66.2              github.blog
 140.82.112.18           github.community
-185.199.111.153         githubstatus.com
+185.199.110.153         githubstatus.com
 140.82.113.3            github.com
-140.82.112.26           alive.github.com
-140.82.113.6            api.github.com
+140.82.113.26           alive.github.com
+140.82.114.6            api.github.com
 # assets-cdn.github.com 解析失败
 140.82.114.22           central.github.com
-140.82.114.9            codeload.github.com
-140.82.113.21           collector.github.com
-140.82.112.3            gist.github.com
-140.82.114.26           live.github.com
+140.82.113.10           codeload.github.com
+140.82.114.22           collector.github.com
+140.82.113.3            gist.github.com
+140.82.112.25           live.github.com
 185.199.110.154         github.githubassets.com
-185.199.108.133         avatars.githubusercontent.com
-185.199.108.133         avatars0.githubusercontent.com
-185.199.110.133         avatars1.githubusercontent.com
-185.199.110.133         avatars2.githubusercontent.com
-185.199.110.133         avatars3.githubusercontent.com
-185.199.108.133         avatars4.githubusercontent.com
-185.199.108.133         avatars5.githubusercontent.com
-185.199.108.133         camo.githubusercontent.com
-185.199.110.133         cloud.githubusercontent.com
-20.85.130.105           copilot-proxy.githubusercontent.com
+185.199.109.133         avatars.githubusercontent.com
+185.199.111.133         avatars0.githubusercontent.com
+185.199.111.133         avatars1.githubusercontent.com
+185.199.108.133         avatars2.githubusercontent.com
+185.199.108.133         avatars3.githubusercontent.com
+185.199.111.133         avatars4.githubusercontent.com
+185.199.111.133         avatars5.githubusercontent.com
+185.199.110.133         camo.githubusercontent.com
+185.199.109.133         cloud.githubusercontent.com
+138.91.182.224          copilot-proxy.githubusercontent.com
 185.199.110.133         desktop.githubusercontent.com
 185.199.110.133         favicons.githubusercontent.com
 185.199.111.133         raw.githubusercontent.com
 185.199.108.133         media.githubusercontent.com
 185.199.110.133         objects.githubusercontent.com
-185.199.109.133         user-images.githubusercontent.com
+185.199.110.133         user-images.githubusercontent.com
 13.107.42.16            pipelines.actions.githubusercontent.com
-54.231.137.225          github-cloud.s3.amazonaws.com
-54.231.162.49           github-com.s3.amazonaws.com
-16.15.177.31            github-production-release-asset-2e65be.s3.amazonaws.com
-52.217.224.113          github-production-repository-file-5c1aeb.s3.amazonaws.com
-52.217.140.97           github-production-user-asset-6210df.s3.amazonaws.com
+54.231.169.113          github-cloud.s3.amazonaws.com
+16.15.204.228           github-com.s3.amazonaws.com
+52.216.212.217          github-production-release-asset-2e65be.s3.amazonaws.com
+52.217.167.217          github-production-repository-file-5c1aeb.s3.amazonaws.com
+52.216.221.233          github-production-user-asset-6210df.s3.amazonaws.com
 185.199.110.133         github.map.fastly.net
-151.101.193.194         github.global.ssl.fastly.net
-13.107.213.40           vscode.dev
+151.101.1.194           github.global.ssl.fastly.net
+13.107.246.51           vscode.dev
 # GitHub Hosts End
 
 # Steam Hosts Start
-184.31.66.9             steam-chat.com
-23.54.184.97            steamcommunity.com
-184.31.66.9             www.steamcommunity.com
-23.54.184.97            api.steampowered.com
-23.54.184.97            help.steampowered.com
-23.35.29.201            store.steampowered.com
-23.207.202.173          media.steampowered.com
-23.54.184.97            login.steampowered.com
-23.35.29.201            checkout.steampowered.com
+184.27.149.74           steam-chat.com
+184.30.89.225           steamcommunity.com
+184.27.149.74           www.steamcommunity.com
+184.30.89.225           api.steampowered.com
+184.30.89.225           help.steampowered.com
+184.29.31.209           store.steampowered.com
+23.211.124.162          media.steampowered.com
+184.30.89.225           login.steampowered.com
+184.29.31.209           checkout.steampowered.com
 199.232.215.52          community.steamstatic.com
-23.207.202.174          avatars.akamai.steamstatic.com
-23.207.202.173          cdn.akamai.steamstatic.com
-23.207.202.197          community.akamai.steamstatic.com
-23.207.202.187          store.akamai.steamstatic.com
-23.199.55.31            steamcdn-a.akamaihd.net
+23.211.124.175          avatars.akamai.steamstatic.com
+23.211.124.174          cdn.akamai.steamstatic.com
+23.211.124.166          community.akamai.steamstatic.com
+23.211.124.164          store.akamai.steamstatic.com
+23.220.161.20           steamcdn-a.akamaihd.net
 # Steam Hosts End
 
 # TMDB Hosts Start
-3.171.38.80             www.themoviedb.org
-3.170.19.94             api.themoviedb.org
-169.150.236.106         image.tmdb.org
-3.170.19.19             api.tmdb.org
+52.222.205.52           www.themoviedb.org
+18.161.156.100          api.themoviedb.org
+143.244.60.196          image.tmdb.org
+52.222.205.97           api.tmdb.org
 # TMDB Hosts End
 
 # Google_Translate Hosts Start
-142.250.31.95           translate.googleapis.com
-192.178.155.102         translate.google.com
+142.251.108.95          translate.googleapis.com
+142.251.108.100         translate.google.com
 # Google_Translate Hosts End
 
 # wallhaven Hosts Start
-172.67.74.111           wallhaven.cc
-104.26.11.35            th.wallhaven.cc
+104.26.10.35            wallhaven.cc
+172.67.74.111           th.wallhaven.cc
 # wallhaven Hosts End
 
 # 总分类数: 5
-# 最后更新: 2026-02-25 00:57:32
+# 最后更新: 2026-02-25 01:54:37
 # Update URL: https://raw.githubusercontent.com/ParkCR/hosts/main/hosts
